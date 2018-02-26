@@ -1,4 +1,6 @@
 import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
+import { BaseComponent } from '../shared/component/base.component';
+import { Initializer } from '../shared/initializer';
 
 @Component({
   selector: 'app-parent',
@@ -8,9 +10,12 @@ import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 })
 export class ParentComponent implements OnInit {
 
-  constructor() { }
+  constructor(private initializer: Initializer) {
+
+  }
 
   ngOnInit() {
+
   }
 
 }

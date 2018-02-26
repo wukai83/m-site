@@ -1,4 +1,5 @@
 import { Component, OnInit, Input, ChangeDetectionStrategy, ChangeDetectorRef } from '@angular/core';
+import { Initializer } from '../shared/initializer';
 
 @Component({
   selector: 'app-child',
@@ -10,7 +11,7 @@ export class ChildComponent implements OnInit {
   @Input()
   counter = 0;
 
-  constructor(private cdRef: ChangeDetectorRef) { }
+  constructor(private cdRef: ChangeDetectorRef, private initializer: Initializer) { }
 
   ngOnInit() {
     setInterval(() => {
@@ -24,5 +25,9 @@ export class ChildComponent implements OnInit {
     } else {
       this.cdRef.reattach();
     }
+  }
+
+  click() {
+    console.dir(this.initializer.config);
   }
 }
