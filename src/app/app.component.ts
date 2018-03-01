@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { Initializer } from './shared/initializer';
 
 @Component({
   selector: 'app-root',

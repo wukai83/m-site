@@ -1,4 +1,4 @@
-import { Initializer } from '../initializer';
+import { Initializer } from '../core/initializer';
 
 export class BaseComponent {
 

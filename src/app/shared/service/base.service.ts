@@ -1,10 +1,8 @@
-import { Injectable } from '@angular/core';
 import { Http, RequestOptionsArgs, Response } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
 // tslint:disable-next-line:import-blacklist
 import 'rxjs/Rx';
 
-@Injectable()
 export class BaseService {
     private readonly API_PREFIX = '/api';
     private readonly DEFAULT_VERSION = 'v1';
@@ -17,6 +15,15 @@ export class BaseService {
 
         return this.getObservable(
             this.http.get(uri, options)
+        );
+    }
+
+    protected httpPost(uri: string, options?: RequestOptionsArgs): Observable<any> {
+
+        console.log(`get => uri: ${uri}`);
+
+        return this.getObservable(
+            this.http.post(uri, options)
         );
     }
 

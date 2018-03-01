@@ -3,24 +3,23 @@ import { NgModule, APP_INITIALIZER } from '@angular/core';
 
 
 import { AppComponent } from './app.component';
-import { ChildComponent } from './child/child.component';
-import { ParentComponent } from './parent/parent.component';
-import { Initializer, configInitializer } from './shared/initializer';
-import { ConfigService } from './shared/service/config.service';
 import { HttpModule } from '@angular/http';
-import { DebounceClickDirective } from './shared/directive/debounceClick.directive';
+// import { DebounceClickDirective } from './shared/directive/debounceClick.directive';
+import { AppRoutingModule } from './app-routing.module';
+import { LoginComponent } from './login/login.component';
+import { ConfigService } from './shared/service/common/config.service';
+import { Initializer, configInitializer } from './shared/core/initializer';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    ChildComponent,
-    ParentComponent,
-    DebounceClickDirective
+    LoginComponent
   ],
   imports: [
     BrowserModule,
-    HttpModule
+    HttpModule,
+    AppRoutingModule
   ],
   providers: [
     Initializer,

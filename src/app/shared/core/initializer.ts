@@ -4,8 +4,8 @@ export function configInitializer(init: Initializer) {
     };
 }
 
-import { ConfigService } from './service/config.service';
 import { Injectable } from '@angular/core';
+import { ConfigService } from '../service/common/config.service';
 @Injectable()
 export class Initializer {
     config: Object;
