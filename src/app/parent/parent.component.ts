@@ -18,4 +18,7 @@ export class ParentComponent implements OnInit {
 
   }
 
+  onClick(e) {
+    console.log(e);
+  }
 }

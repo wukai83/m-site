@@ -8,13 +8,15 @@ import { ParentComponent } from './parent/parent.component';
 import { Initializer, configInitializer } from './shared/initializer';
 import { ConfigService } from './shared/service/config.service';
 import { HttpModule } from '@angular/http';
+import { DebounceClickDirective } from './shared/directive/debounceClick.directive';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     ChildComponent,
-    ParentComponent
+    ParentComponent,
+    DebounceClickDirective
   ],
   imports: [
     BrowserModule,
