@@ -2,7 +2,9 @@ import { Http, RequestOptionsArgs, Response } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
 // tslint:disable-next-line:import-blacklist
 import 'rxjs/Rx';
+import { Injectable } from '@angular/core';
 
+@Injectable()
 export class BaseService {
     private readonly API_PREFIX = '/api';
     private readonly DEFAULT_VERSION = 'v1';

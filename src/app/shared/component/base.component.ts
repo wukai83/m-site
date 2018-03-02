@@ -1,9 +1,7 @@
-import { Initializer } from '../core/initializer';
-
 export class BaseComponent {
 
-  constructor(private initializer: Initializer) {
-    console.dir(this.initializer.config);
+  constructor() {
+
   }
 
   protected doService(service: Function, callback: Function, ...conditions: any[]) {

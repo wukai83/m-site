@@ -4,9 +4,9 @@ import { LoginModel } from '../../model/common/login.model';
 import { Observable } from 'rxjs/Observable';
 
 @Injectable()
-export class AuthService extends BaseService {
+export class AuthMockService extends BaseService {
 
     public login(data: LoginModel) {
-        // return Observable.of(data);
+        return Observable.of(data);
     }
 }

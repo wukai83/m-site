@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Initializer } from './shared/core/initializer';
 
 @Component({
   selector: 'app-root',
@@ -7,6 +8,8 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'app';
-  constructor() {
+
+  constructor(private initializer: Initializer) {
+    console.dir(this.initializer.config);
   }
 }
