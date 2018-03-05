@@ -3,17 +3,15 @@ import { Observable } from 'rxjs/Observable';
 // tslint:disable-next-line:import-blacklist
 import 'rxjs/Rx';
 import { Injectable } from '@angular/core';
+import { LoggerService } from './common/logger.service';
 
 @Injectable()
 export class BaseService {
-    private readonly API_PREFIX = '/api';
-    private readonly DEFAULT_VERSION = 'v1';
-
-    constructor(private http: Http) { }
+    constructor(private http: Http, private logger: LoggerService) { }
 
     protected httpGet(uri: string, options?: RequestOptionsArgs): Observable<any> {
 
-        console.log(`get => uri: ${uri}`);
+        this.logger.log(`get => uri: ${uri}`);
 
         return this.getObservable(
             this.http.get(uri, options)
@@ -22,7 +20,7 @@ export class BaseService {
 
     protected httpPost(uri: string, options?: RequestOptionsArgs): Observable<any> {
 
-        console.log(`get => uri: ${uri}`);
+        this.logger.log(`get => uri: ${uri}`);
 
         return this.getObservable(
             this.http.post(uri, options)
@@ -47,16 +45,16 @@ export class BaseService {
                         try {
                             ret = res.text();
                         } catch (e) {
-                            console.log('no return values');
+                            this.logger.log('no return values');
                         }
                     }
                 }
 
-                console.log(`${res.url} => ${JSON.stringify(ret, null, '\t')}`);
+                this.logger.log(`${res.url} => ${JSON.stringify(ret, null, '\t')}`);
                 return ret;
             })
             .catch((error: any) => {
-                console.error(error);
+                this.logger.error(error);
                 throw error;
             });
     }

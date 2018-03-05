@@ -2,6 +2,7 @@ import { AuthService } from '../app/shared/service/common/auth.service';
 import { AuthMockService } from '../app/shared/service/common/auth.mock.service';
 import { APP_INITIALIZER } from '@angular/core';
 import { configInitializer, Initializer } from '../app/shared/core/initializer';
+import { LoggerService } from '../app/shared/service/common/logger.service';
 
 // The file contents for the current environment will overwrite these during build.
 // The build system defaults to the dev environment which uses `environment.ts`, but if you do
@@ -11,5 +12,5 @@ import { configInitializer, Initializer } from '../app/shared/core/initializer';
 export const environment = {
   production: false,
   authService: { provide: AuthService, useClass: AuthMockService },
-  initializer: { provide: APP_INITIALIZER, useFactory: configInitializer, deps: [Initializer], multi: true },
+  loggerService: { provide: LoggerService, useFactory: () => new LoggerService(this.production) },
 };

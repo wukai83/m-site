@@ -11,6 +11,8 @@ import { Initializer, configInitializer } from './shared/core/initializer';
 import { AuthService } from './shared/service/common/auth.service';
 import { AuthMockService } from './shared/service/common/auth.mock.service';
 import { environment } from '../environments/environment';
+import { SessionStorageService } from './shared/service/common/sessionStorage.service';
+import { LocalStorageService } from './shared/service/common/localStorage.service';
 
 
 @NgModule({
@@ -26,8 +28,16 @@ import { environment } from '../environments/environment';
   providers: [
     ConfigService,
     Initializer,
-    environment.initializer,
-    environment.authService
+    {
+      provide: APP_INITIALIZER,
+      useFactory: configInitializer,
+      deps: [Initializer],
+      multi: true
+    },
+    SessionStorageService,
+    LocalStorageService,
+    environment.authService,
+    environment.loggerService
   ],
   bootstrap: [AppComponent]
 })
