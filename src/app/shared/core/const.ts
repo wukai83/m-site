@@ -1,3 +1,11 @@
 export class Const {
-    static readonly DEFAULT_SVC_VERSION = 'v1';
+    static readonly SVC_PREFIX = 'api';
+
+    static readonly API_URI = {
+        Login: `${Const.SVC_PREFIX}/login`
+    };
+
+    static readonly PATH_URI = {
+        Login: '/login'
+    };
 }
