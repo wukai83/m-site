@@ -1,7 +1,7 @@
 //users.js
 var faker = require('faker');
 
-function generateLoginModels() {
+function generateUsers() {
   var users = []
 
   for (var id = 0; id < 50; id++) {
@@ -21,4 +21,4 @@ function generateLoginModels() {
   }
 }
 
-module.exports = generateLoginModels
+module.exports = generateUsers
