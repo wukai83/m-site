@@ -1,0 +1,18 @@
+{
+  "CMT": {
+    "LOGIN": {
+      "DESCREPTION": "登録情報を入力してください。",
+      "REMEMBER_ME": "登録情報を保存する。",
+      "FORGET_PWD": "パスワードをお忘れの方へ。"
+    }
+  },
+  "COM": {
+    "TITLE": {
+      "USERNAME": "ユーザ名",
+      "PASSWORD": "パスワード"
+    }
+  },
+  "BTN": {
+    "SUBMIT": "ログイン"
+  }
+}

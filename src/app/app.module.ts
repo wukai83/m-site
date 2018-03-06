@@ -13,6 +13,13 @@ import { AuthMockService } from './shared/service/common/auth.mock.service';
 import { environment } from '../environments/environment';
 import { SessionStorageService } from './shared/service/common/sessionStorage.service';
 import { LocalStorageService } from './shared/service/common/localStorage.service';
+import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { HttpClientModule, HttpClient } from '@angular/common/http';
+
+export function createTranslateLoader(http: HttpClient) {
+  return new TranslateHttpLoader(http, './assets/i18n/', '.json');
+}
 
 
 @NgModule({
@@ -23,7 +30,15 @@ import { LocalStorageService } from './shared/service/common/localStorage.servic
   imports: [
     BrowserModule,
     HttpModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule,
+    TranslateModule.forRoot({
+      loader: {
+        provide: TranslateLoader,
+        useFactory: createTranslateLoader,
+        deps: [HttpClient]
+      }
+    })
   ],
   providers: [
     ConfigService,

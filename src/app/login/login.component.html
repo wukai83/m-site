@@ -5,25 +5,25 @@
         <div class="card card-border-color card-border-color-primary">
           <div class="card-header">
             <img src="assets/img/logo-xx.png" alt="logo" width="102" height="27" class="logo-img">
-            <span class="splash-description">Please enter your user information.</span>
+            <span class="splash-description">{{ 'CMT.LOGIN.DESCREPTION' | translate }}</span>
           </div>
           <div class="card-body">
             <form action="index.html" method="get">
               <div class="form-group">
-                <input id="username" type="text" placeholder="Username" autocomplete="off" class="form-control">
+                <input id="username" type="text" [placeholder]="'COM.TITLE.USERNAME' | translate" autocomplete="off" class="form-control">
               </div>
               <div class="form-group">
-                <input id="password" type="password" placeholder="Password" class="form-control">
+                <input id="password" type="password" [placeholder]="'COM.TITLE.PASSWORD' | translate" class="form-control">
               </div>
               <div class="form-group row login-tools">
                 <div class="col-6 login-remember">
                   <label class="custom-control custom-checkbox">
                     <input type="checkbox" class="custom-control-input">
-                    <span class="custom-control-label">Remember Me</span>
+                    <span class="custom-control-label">{{ 'CMT.LOGIN.REMEMBER_ME' | translate }}</span>
                   </label>
                 </div>
                 <div class="col-6 login-forgot-password">
-                  <a href="pages-forgot-password.html">Forgot Password?</a>
+                  <a href="pages-forgot-password.html">{{ 'CMT.LOGIN.FORGET_PWD' | translate }}</a>
                 </div>
               </div>
               <div class="form-group login-submit">
@@ -34,7 +34,7 @@
         </div>
         <div class="splash-footer">
           <span>Don't have an account?
-            <a href="pages-sign-up.html">Sign Up</a>
+            <a href="pages-sign-up.html">{{ 'BTN.SUBMIT' | translate }}</a>
           </span>
         </div>
       </div>

@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { Initializer } from './shared/core/initializer';
+import { TranslateService } from '@ngx-translate/core';
+import { Const } from './shared/core/const';
 
 @Component({
   selector: 'app-root',
@@ -9,7 +11,12 @@ import { Initializer } from './shared/core/initializer';
 export class AppComponent {
   title = 'app';
 
-  constructor(private initializer: Initializer) {
-    console.dir(this.initializer.config);
+  constructor(
+    private initializer: Initializer,
+    private translate: TranslateService
+  ) {
+    const defualtLang = Const.LANG.JAPANESE;
+    this.translate.setDefaultLang(defualtLang);
+    this.translate.use(defualtLang);
   }
 }

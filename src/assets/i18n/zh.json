@@ -1,0 +1,18 @@
+{
+  "CMT": {
+    "LOGIN": {
+      "DESCREPTION": "请输入您的用户信息。",
+      "REMEMBER_ME": "记住密码信息。",
+      "FORGET_PWD": "忘记密码信息。"
+    }
+  },
+  "COM": {
+    "TITLE": {
+      "USERNAME": "",
+      "PASSWORD": ""
+    }
+  },
+  "BTN": {
+    "SUBMIT": "登陆"
+  }
+}

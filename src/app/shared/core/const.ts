@@ -8,4 +8,9 @@ export class Const {
     static readonly PATH_URI = {
         Login: '/login'
     };
+
+    static readonly LANG = {
+        JAPANESE: 'ja',
+        CHINESE: 'zh'
+    };
 }
