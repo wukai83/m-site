@@ -5,7 +5,7 @@ export class CommonUtils {
      * @param value 值
      */
     static isEmpty(value: any): boolean {
-        return value === null || value === undefined || (typeof value === 'string' && value.length === 0);
+        return value === null || value === undefined || typeof value === 'string' && value.length === 0;
     }
 
     /**
