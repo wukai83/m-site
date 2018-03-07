@@ -16,22 +16,27 @@ import { LocalStorageService } from './shared/service/common/localStorage.servic
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { HttpClientModule, HttpClient } from '@angular/common/http';
+import { ReactiveFormsModule } from '@angular/forms';
+import { MainComponent } from './main/main.component';
+import { TestDirective } from './shared/directive/test.directive';
 
 export function createTranslateLoader(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
 }
 
-
 @NgModule({
   declarations: [
     AppComponent,
-    LoginComponent
-  ],
+    LoginComponent,
+    MainComponent,
+    TestDirective
+],
   imports: [
     BrowserModule,
     HttpModule,
     AppRoutingModule,
     HttpClientModule,
+    ReactiveFormsModule,
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,

@@ -1,12 +1,14 @@
 import { Injectable } from '@angular/core';
 import { BaseService } from '../base.service';
-import { LoginModel } from '../../model/common/login.model';
 import { Observable } from 'rxjs/Observable';
+import { UserModel } from '../../model/common/user.model';
+import { Const } from '../../core/const';
 
 @Injectable()
 export class AuthMockService extends BaseService {
 
-    public login(data: LoginModel) {
-        return Observable.of(data);
+    login(loginId: string, password: string): Observable<UserModel> {
+        const data = { loginId: loginId, password: password };
+        return this.httpGet(Const.PATH_URI.Login, data)[0];
     }
 }

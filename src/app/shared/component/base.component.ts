@@ -1,15 +1,13 @@
 export class BaseComponent {
 
   constructor() {
-
   }
 
-  protected doService(service: Function, callback: Function, ...conditions: any[]) {
-    service(conditions).subscribe(
-      // コールバック
-      (data: any) => callback(data),
-      // エラー処理
-      error => this.doErrorHanding(error)
+  protected doService(service: Function, callback: Function, after?: Function) {
+    service().subscribe(
+      data => callback(data),
+      error => this.doErrorHanding(error),
+      () => this.doComplete()
     );
   }
 
@@ -17,7 +15,7 @@ export class BaseComponent {
    * エラー処理を行う。
    * @param error エラー情報
    */
-  private doErrorHanding(e: any): void {
+  protected doErrorHanding(e: any): void {
     // TODO:異常パターン
     if (e.status === 401 || e.status === 403) {
       // 認証認可異常
@@ -28,5 +26,8 @@ export class BaseComponent {
     } else {
 
     }
+  }
+
+  protected doComplete(): void {
   }
 }

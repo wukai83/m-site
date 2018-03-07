@@ -1,7 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { LoginModel } from '../shared/model/common/login.model';
+import { UserModel } from '../shared/model/common/user.model';
 import { AuthService } from '../shared/service/common/auth.service';
 import { BaseComponent } from '../shared/component/base.component';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { CommonUtils } from '../shared/core/common.utils';
+import { Router } from '@angular/router';
+import { Const } from '../shared/core/const';
 
 @Component({
   selector: 'app-login',
@@ -9,21 +13,35 @@ import { BaseComponent } from '../shared/component/base.component';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent extends BaseComponent implements OnInit {
+  user: FormGroup;
 
-  data: LoginModel;
-
-  constructor(private authService: AuthService) {
+  constructor(
+    private authService: AuthService,
+    private fb: FormBuilder,
+    private router: Router
+  ) {
     super();
   }
 
   ngOnInit() {
+    this.user = this.fb.group({
+      loginId: ['', [Validators.required]],
+      password: ['', [Validators.required]]
+    });
   }
 
-  login() {
-    const user: LoginModel = { userName: 'test', password: '123456' };
-    this.doService(() => this.authService.login(user), (data) => {
-      this.data = data;
-    });
-
+  login({ value, valid }: { value: UserModel, valid: boolean }) {
+    if (this.user.valid) {
+      console.dir(value);
+      console.dir(valid);
+    }
+    // this.doService(
+    //   () => this.authService.login(loginId, password),
+    //   (result: UserModel) => {
+    //     if (result.loginId === loginId) {
+    //       this.router.navigate([Const.PATH_URI.Main]);
+    //     }
+    //   }
+    // );
   }
 }

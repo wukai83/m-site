@@ -6,7 +6,8 @@ export class Const {
     };
 
     static readonly PATH_URI = {
-        Login: '/login'
+        Login: '/login',
+        Main: '/main'
     };
 
     static readonly LANG = {

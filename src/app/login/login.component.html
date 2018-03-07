@@ -8,12 +8,16 @@
             <span class="splash-description">{{ 'CMT.LOGIN.DESCREPTION' | translate }}</span>
           </div>
           <div class="card-body">
-            <form action="index.html" method="get">
+            <form novalidate [formGroup]="user" (ngSubmit)="login(user)">
               <div class="form-group">
-                <input id="username" type="text" [placeholder]="'COM.TITLE.USERNAME' | translate" autocomplete="off" class="form-control">
+                <input type="text" [placeholder]="'COM.TITLE.USERNAME' | translate" 
+                autocomplete="off" class="form-control" formControlName="loginId" appTest [fg]="user">
+                <ul *ngIf="user.get('loginId').hasError('required')" class="parsley-errors-list filled">
+                  <li class="parsley-required">This LoginId is required.</li>
+                </ul>
               </div>
               <div class="form-group">
-                <input id="password" type="password" [placeholder]="'COM.TITLE.PASSWORD' | translate" class="form-control">
+                <input type="password" [placeholder]="'COM.TITLE.PASSWORD' | translate" class="form-control" formControlName="password">
               </div>
               <div class="form-group row login-tools">
                 <div class="col-6 login-remember">

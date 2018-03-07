@@ -9,7 +9,7 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "json-server": "json-server src/assets/mockdb/users.js"
+    "jsv": "json-server -w src/assets/mockdb/db.js"
   },
   "private": true,
   "dependencies": {

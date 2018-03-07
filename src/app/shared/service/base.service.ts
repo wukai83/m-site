@@ -4,13 +4,15 @@ import { Observable } from 'rxjs/Observable';
 import 'rxjs/Rx';
 import { Injectable } from '@angular/core';
 import { LoggerService } from './common/logger.service';
+import { BaseModel } from '../model/base.model';
+import { CommonUtils } from '../core/common.utils';
 
 @Injectable()
 export class BaseService {
     constructor(private http: Http, private logger: LoggerService) { }
 
-    protected httpGet(uri: string, options?: RequestOptionsArgs): Observable<any> {
-
+    protected httpGet(uri: string, model: BaseModel, options?: RequestOptionsArgs): Observable<any> {
+        uri += this.getQueryString(model);
         this.logger.log(`get => uri: ${uri}`);
 
         return this.getObservable(
@@ -18,12 +20,12 @@ export class BaseService {
         );
     }
 
-    protected httpPost(uri: string, options?: RequestOptionsArgs): Observable<any> {
+    protected httpPost(uri: string, model: BaseModel, options?: RequestOptionsArgs): Observable<any> {
 
         this.logger.log(`get => uri: ${uri}`);
 
         return this.getObservable(
-            this.http.post(uri, options)
+            this.http.post(uri, model, options)
         );
     }
 
@@ -38,15 +40,9 @@ export class BaseService {
                 if (res.status >= 200 && res.status < 300) {
                     try {
                         ret = res.json();
-                        if (ret !== 0 && ret !== '0') {
-                            ret = ret || {};
-                        }
                     } catch (e) {
-                        try {
-                            ret = res.text();
-                        } catch (e) {
-                            this.logger.log('no return values');
-                        }
+                        ret = res.text();
+                        this.logger.log('return values is not a string of json format.');
                     }
                 }
 
@@ -57,5 +53,22 @@ export class BaseService {
                 this.logger.error(error);
                 throw error;
             });
+    }
+
+    private getQueryString(model: BaseModel): string {
+        let query = '';
+        Object.keys(model).forEach(key => {
+            const val = model[key];
+            if (val !== null && val !== undefined) {
+                if (CommonUtils.isObject(val)) {
+                    this.getQueryString(val);
+                } else {
+                    query += `&${key}=${encodeURIComponent(val)}`;
+                }
+            }
+        });
+        query = query.slice(1);
+        this.logger.log(`query => ${query}`);
+        return query;
     }
 }

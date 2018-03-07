@@ -1,6 +1,17 @@
 //users.js
 var faker = require('faker');
 
+function generateLogins() {
+  var datas = [];
+  
+  datas.push({
+    "loginId": "test1",
+    "password": "123456"
+  });
+
+  return datas;
+}
+
 function generateUsers() {
   var users = []
 
@@ -16,9 +27,14 @@ function generateUsers() {
     })
   }
 
+  return users;
+}
+
+function generateDbDatas() {
   return {
-    "users": users
+    "login": generateLogins(),
+    "users": generateUsers()
   }
 }
 
-module.exports = generateUsers
+module.exports = generateDbDatas
