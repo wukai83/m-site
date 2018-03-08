@@ -9,6 +9,6 @@ export class AuthService extends BaseService {
 
     login(loginId: string, password: string): Observable<UserModel> {
         // this.httpPost(Const.PATH_URI.Login, data);
-        return null;
+        return Observable.of<UserModel>();
     }
 }

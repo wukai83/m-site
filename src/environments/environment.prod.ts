@@ -6,6 +6,5 @@ import { LoggerService } from '../app/shared/service/common/logger.service';
 export const environment = {
   production: true,
   authService: { provide: AuthService, useClass: AuthService },
-  initializer: { provide: APP_INITIALIZER, useFactory: configInitializer, deps: [Initializer], multi: true },
   loggerService: { provide: LoggerService, useFactory: () => new LoggerService(this.production) },
 };

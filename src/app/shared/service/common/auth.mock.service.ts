@@ -9,6 +9,6 @@ export class AuthMockService extends BaseService {
 
     login(loginId: string, password: string): Observable<UserModel> {
         const data = { loginId: loginId, password: password };
-        return this.httpGet(Const.PATH_URI.Login, data)[0];
+        return this.httpGet(Const.PATH_URI.Login, data);
     }
 }

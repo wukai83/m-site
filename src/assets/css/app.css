@@ -9672,7 +9672,7 @@ canvas {
   line-height: 60px;
   height: 60px;
   width: 142px;
-  /* background-image: url(../img/logo.png); */
+  background-image: url(../img/logo.png);
   background-repeat: no-repeat;
   background-position: 20px center;
   padding: 0 20px;
