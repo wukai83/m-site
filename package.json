@@ -4,10 +4,10 @@
   "license": "MIT",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve --port 4300 --proxy-config proxy.conf.json",
-    "build": "ng build --prod",
-    "test": "ng test",
-    "lint": "ng lint",
+    "s": "ng serve --port 4300 --proxy-config proxy.conf.json",
+    "b": "ng build --prod",
+    "t": "ng test",
+    "l": "ng lint",
     "e2e": "ng e2e",
     "jsv": "json-server -w src/assets/mockdb/db.js"
   },
