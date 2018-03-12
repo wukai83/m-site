@@ -1,3 +1,9 @@
-<p>
-  main works!
-</p>
+ main works!
+<!-- <router-outlet></router-outlet> -->
+<table>
+  <tr (click)="fromParent()">
+    <td>
+        <button (click.stop)="fromChild()">Click me</button>
+    </td>
+  </tr>
+</table>

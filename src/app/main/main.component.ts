@@ -12,4 +12,11 @@ export class MainComponent implements OnInit {
   ngOnInit() {
   }
 
+  fromChild() {
+    console.log('I am Child');
+  }
+
+  fromParent() {
+    console.log('I am Parent');
+  }
 }

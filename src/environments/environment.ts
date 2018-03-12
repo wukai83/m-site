@@ -11,6 +11,6 @@ import { LoggerService } from '../app/shared/service/common/logger.service';
 
 export const environment = {
   production: false,
-  authService: { provide: AuthService, useClass: AuthMockService },
-  loggerService: { provide: LoggerService, useFactory: () => new LoggerService(this.production) },
+  // authService: { provide: AuthService, useClass: AuthMockService },
+  // loggerService: { provide: LoggerService, useFactory: () => new LoggerService(this.production) },
 };

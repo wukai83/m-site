@@ -19,6 +19,9 @@ import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MainComponent } from './main/main.component';
 import { TestDirective } from './shared/directive/test.directive';
+import { StopPropagationDirective } from './shared/directive/stopPropagation.directive';
+import { LoggerService } from './shared/service/common/logger.service';
+import { AuthGuard } from './shared/core/auth.guard';
 
 export function createTranslateLoader(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -28,9 +31,8 @@ export function createTranslateLoader(http: HttpClient) {
   declarations: [
     AppComponent,
     LoginComponent,
-    MainComponent,
-    TestDirective
-],
+    TestDirective,
+  ],
   imports: [
     BrowserModule,
     HttpModule,
@@ -56,8 +58,9 @@ export function createTranslateLoader(http: HttpClient) {
     },
     SessionStorageService,
     LocalStorageService,
-    environment.authService,
-    environment.loggerService
+    AuthGuard,
+    { provide: AuthService, useClass: AuthMockService },
+    { provide: LoggerService, useFactory: () => new LoggerService(true) }
   ],
   bootstrap: [AppComponent]
 })
