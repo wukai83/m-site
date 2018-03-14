@@ -5,6 +5,6 @@ import { BaseService } from '../base.service';
 export class ConfigService extends BaseService {
 
     public getConfig(uri: string) {
-        return this.httpGet(uri, {});
+        return this.httpGet(uri);
     }
 }

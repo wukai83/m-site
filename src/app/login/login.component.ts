@@ -31,10 +31,6 @@ export class LoginComponent extends BaseComponent implements OnInit {
   }
 
   login({ value, valid }: { value: UserModel, valid: boolean }) {
-    // if (this.user.valid) {
-    //   console.dir(value);
-    //   console.dir(valid);
-    // }
     this.router.navigate([Const.PATH_URI.Main]);
     // this.doService(
     //   () => this.authService.login(loginId, password),

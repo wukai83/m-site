@@ -10,7 +10,6 @@ import { ConfigService } from './shared/service/common/config.service';
 import { Initializer, configInitializer } from './shared/core/initializer';
 import { AuthService } from './shared/service/common/auth.service';
 import { AuthMockService } from './shared/service/common/auth.mock.service';
-import { environment } from '../environments/environment';
 import { SessionStorageService } from './shared/service/common/sessionStorage.service';
 import { LocalStorageService } from './shared/service/common/localStorage.service';
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
@@ -22,6 +21,7 @@ import { TestDirective } from './shared/directive/test.directive';
 import { StopPropagationDirective } from './shared/directive/stopPropagation.directive';
 import { LoggerService } from './shared/service/common/logger.service';
 import { AuthGuard } from './shared/core/auth.guard';
+import './shared/core/custom-operators';
 
 export function createTranslateLoader(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');

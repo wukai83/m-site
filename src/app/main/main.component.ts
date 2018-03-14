@@ -1,19 +1,28 @@
 import { Component, OnInit } from '@angular/core';
+import { BaseComponent } from '../shared/component/base.component';
+import { AuthService } from '../shared/service/common/auth.service';
 
 @Component({
   selector: 'app-main',
   templateUrl: './main.component.html',
   styleUrls: ['./main.component.css']
 })
-export class MainComponent implements OnInit {
+export class MainComponent extends BaseComponent implements OnInit {
 
-  constructor() { }
+  constructor(private authService: AuthService) {
+    super();
+  }
 
   ngOnInit() {
   }
 
   fromChild() {
-    console.log('I am Child');
+    this.doService(
+      () => this.authService.login('', ''),
+      (data) => {
+        console.dir(data);
+      }
+    );
   }
 
   fromParent() {

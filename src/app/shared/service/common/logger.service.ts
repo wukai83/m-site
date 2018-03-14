@@ -6,13 +6,13 @@ export class LoggerService {
     constructor(private enable: boolean) { }
 
     public log(message: string) {
-        if (!this.enable) {
+        if (this.enable) {
             console.log(message);
         }
     }
 
     public error(message: string) {
-        if (!this.enable) {
+        if (this.enable) {
             console.error(message);
         }
     }
