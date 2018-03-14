@@ -11,4 +11,8 @@ export class AuthMockService extends BaseService {
         const data = { loginId: loginId, password: password };
         return this.httpGet(Const.API_URI.Login);
     }
+
+    getUsers() {
+        return this.httpGet(Const.API_URI.User);
+    }
 }

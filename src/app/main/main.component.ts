@@ -18,7 +18,7 @@ export class MainComponent extends BaseComponent implements OnInit {
 
   fromChild() {
     this.doService(
-      () => this.authService.login('', ''),
+      () => this.authService.getUsers(),
       (data) => {
         console.dir(data);
       }

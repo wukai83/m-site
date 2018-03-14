@@ -11,4 +11,8 @@ export class AuthService extends BaseService {
         // this.httpPost(Const.PATH_URI.Login, data);
         return Observable.of<UserModel>();
     }
+
+    getUsers() {
+        return Observable.of();
+    }
 }

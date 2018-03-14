@@ -3,11 +3,11 @@ export class BaseComponent {
   constructor() {
   }
 
-  protected doService(service: Function, callback: Function, after?: Function) {
+  protected doService(service: Function, callback: Function, after: Function = () => { this.doComplete(); }) {
     service().subscribe(
       data => callback(data),
       error => this.doErrorHanding(error),
-      () => this.doComplete()
+      () => after()
     );
   }
 
