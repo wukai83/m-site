@@ -1,5 +1,12 @@
-export class BaseComponent {
+import { OnDestroy } from '@angular/core';
+import { Subject } from 'rxjs/Subject';
 
+export class BaseComponent implements OnDestroy {
+  // subscription取消
+  protected componetDestroyed = new Subject();
+  ngOnDestroy(): void {
+    this.componetDestroyed.unsubscribe();
+  }
   constructor() {
   }
 
