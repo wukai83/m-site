@@ -21,7 +21,7 @@ body {
 /* Layout */
 
 .wrapper {
-  @include clearfix;
+  @include clearfix();
   height: 100%;
   position: relative;
   overflow-x: hidden;
