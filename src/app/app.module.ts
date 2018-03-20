@@ -3,7 +3,6 @@ import { NgModule, APP_INITIALIZER } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import { HttpModule } from '@angular/http';
-// import { DebounceClickDirective } from './shared/directive/debounceClick.directive';
 import { AppRoutingModule } from './app-routing.module';
 import { LoginComponent } from './login/login.component';
 import { ConfigService } from './shared/service/common/config.service';
@@ -16,12 +15,11 @@ import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
-import { MainComponent } from './main/main.component';
-import { TestDirective } from './shared/directive/test.directive';
-import { StopPropagationDirective } from './shared/directive/stopPropagation.directive';
 import { LoggerService } from './shared/service/common/logger.service';
 import { AuthGuard } from './shared/core/auth.guard';
 import './shared/core/custom-operators';
+import { environment } from '../environments/environment';
+import { StopPropagationDirective } from './shared/directive';
 
 export function createTranslateLoader(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -31,7 +29,7 @@ export function createTranslateLoader(http: HttpClient) {
   declarations: [
     AppComponent,
     LoginComponent,
-    TestDirective,
+    StopPropagationDirective
   ],
   imports: [
     BrowserModule,
@@ -59,8 +57,8 @@ export function createTranslateLoader(http: HttpClient) {
     SessionStorageService,
     LocalStorageService,
     AuthGuard,
-    { provide: AuthService, useClass: AuthMockService },
-    { provide: LoggerService, useFactory: () => new LoggerService(true) }
+    environment.authService,
+    environment.loggerService
   ],
   bootstrap: [AppComponent]
 })

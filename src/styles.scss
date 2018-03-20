@@ -1,9 +1,10 @@
-@import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
-
+/* ======bootstrap scss与css引入======*/
+@import '../node_modules/bootstrap/scss/bootstrap.scss'; 
+@import '../node_modules/bootstrap/scss/bootstrap-grid.scss'; 
+@import '../node_modules/bootstrap/scss/bootstrap-reboot.scss'; 
+/* ======以下是第三方scss与css引入======*/
 @import '../node_modules/font-awesome/css/font-awesome.min.css';
-
 @import '../node_modules/ionicons/dist/css/ionicons.min.css';
+/* ======以下是自定义scss引入======*/
+@import './assets/scss/common.scss';
 
-@import './assets/css/skins/_all-skins.min.css';
-
-@import './assets/css/common.css';

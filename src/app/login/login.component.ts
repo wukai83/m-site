@@ -28,6 +28,8 @@ export class LoginComponent extends BaseComponent implements OnInit {
       loginId: ['', [Validators.required]],
       password: ['', [Validators.required]]
     });
+
+    this.router.navigate([Const.PATH_URI.Main]);
   }
 
   login({ value, valid }: { value: UserModel, valid: boolean }) {
