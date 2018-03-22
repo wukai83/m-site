@@ -20,6 +20,9 @@ import { AuthGuard } from './shared/core/auth.guard';
 import './shared/core/custom-operators';
 import { environment } from '../environments/environment';
 import { StopPropagationDirective } from './shared/directive';
+import { ToastComponent } from './shared/component/toast/toast.component';
+import { ToastBoxComponent } from './shared/component/toast/toast-box.component';
+import { ToastService } from './shared/component/toast/toast.service';
 
 export function createTranslateLoader(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -29,6 +32,8 @@ export function createTranslateLoader(http: HttpClient) {
   declarations: [
     AppComponent,
     LoginComponent,
+    ToastBoxComponent,
+    ToastComponent,
     StopPropagationDirective
   ],
   imports: [
@@ -56,6 +61,7 @@ export function createTranslateLoader(http: HttpClient) {
     },
     SessionStorageService,
     LocalStorageService,
+    ToastService,
     AuthGuard,
     environment.authService,
     environment.loggerService

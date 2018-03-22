@@ -1,47 +1,50 @@
-<div class="be-wrapper be-login">
-  <div class="be-content">
-    <div class="main-content container-fluid">
-      <div class="splash-container">
-        <div class="card card-border-color card-border-color-primary">
-          <div class="card-header">
-            <!-- <img src="assets/img/logo-xx.png" alt="logo" width="102" height="27" class="logo-img"> -->
-            <span class="splash-description">{{ 'CMT.LOGIN.DESCREPTION' | translate }}</span>
+<div class="c-login-wrapper animated fadeIn">
+  <div class="d-flex justify-content-center c-login-container">
+    <div class="card c-login-box">
+      <div class="card-body">
+        <div class="text-center c-login-header">
+          <img src="assets/img/logo.png" class="rounded-circle" />
+          <h3 class="card-title" style="display:inline">后台管理系统登录</h3>
+        </div>
+        <hr/>
+        <form [formGroup]="loginForm">
+          <div class="form-group row">
+            <div class="col-12">
+              <input class="form-control " type="text" formControlName="userName" placeholder="请输入用户名...">
+              <div class="c-validator-invalid" [hidden]="!(loginForm.controls['userName'].errors && loginForm.controls['userName'].dirty)">
+                用户名必填，6-15位！
+              </div>
+            </div>
           </div>
-          <div class="card-body">
-            <form novalidate [formGroup]="user" (ngSubmit)="login(user)">
-              <div class="form-group">
-                <input type="text" [placeholder]="'COM.TITLE.USERNAME' | translate" 
-                autocomplete="off" class="form-control" formControlName="loginId">
-                <!-- <ul *ngIf="user.get('loginId').hasError('required')" class="parsley-errors-list filled">
-                  <li class="parsley-required">This LoginId is required.</li>
-                </ul> -->
+          <div class="form-group row">
+            <div class="col-12">
+              <input class="form-control" type="password" formControlName="password" placeholder="请输入密码...">
+              <div class="c-validator-invalid" [hidden]="!(loginForm.controls['password'].errors && loginForm.controls['password'].dirty)">
+                密码必填，6-15位！
               </div>
-              <div class="form-group">
-                <input type="password" [placeholder]="'COM.TITLE.PASSWORD' | translate" class="form-control" formControlName="password">
-              </div>
-              <div class="form-group row login-tools">
-                <div class="col-6 login-remember">
-                  <label class="custom-control custom-checkbox">
-                    <input type="checkbox" class="custom-control-input">
-                    <span class="custom-control-label">{{ 'CMT.LOGIN.REMEMBER_ME' | translate }}</span>
-                  </label>
-                </div>
-                <div class="col-6 login-forgot-password">
-                  <a href="pages-forgot-password.html">{{ 'CMT.LOGIN.FORGET_PWD' | translate }}</a>
-                </div>
-              </div>
-              <div class="form-group login-submit">
-                <button data-dismiss="modal" type="submit" class="btn btn-primary btn-xl">{{ 'BTN.SUBMIT' | translate }}</button>
-              </div>
-            </form>
+            </div>
+          </div>
+
+          <div class="form-group row">
+            <div class="col-12">
+              <button type="submit" class="btn c-not-shadow" [disabled]="!loginForm.valid" (click)="login();">登 录</button>
+            </div>
+          </div>
+        </form>
+        <div class=" row">
+          <div class="col-12 text-right">
+            <a href="#">忘记密码？</a>
           </div>
         </div>
-        <div class="splash-footer">
-          <span>Don't have an account?
-            <a href="pages-sign-up.html">{{ 'BTN.REGISTE' | translate }}</a>
-          </span>
+        <div class="row c-copy-right">
+          <div class="col-12 text-center">
+            <p>Copyright 2017 cjh. All Rights Reserved. </p>
+          </div>
         </div>
       </div>
     </div>
+  </div>
+  <div class="c-login-desc">
+    系统仅支持Edge、Google Chrome、Mozilla Firefox以及其它主流的浏览器，如您的浏览器无法使用本系统，请更换其它浏览器！
   </div>
 </div>

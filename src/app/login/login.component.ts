@@ -6,41 +6,46 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { CommonUtils } from '../shared/core/common.utils';
 import { Router } from '@angular/router';
 import { Const } from '../shared/core/const';
+import { ToastConfig, ToastType } from '../shared/component/toast/toast-model';
+import { ToastService } from '../shared/component/toast/toast.service';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css']
+  styleUrls: ['./login.component.scss']
 })
 export class LoginComponent extends BaseComponent implements OnInit {
-  user: FormGroup;
+  loginForm: FormGroup;
 
   constructor(
     private authService: AuthService,
-    private fb: FormBuilder,
-    private router: Router
+    private formBuilder: FormBuilder,
+    private router: Router,
+    private toastService: ToastService
   ) {
     super();
   }
 
   ngOnInit() {
-    this.user = this.fb.group({
-      loginId: ['', [Validators.required]],
-      password: ['', [Validators.required]]
+    this.loginForm = this.formBuilder.group({
+      userName: ['', [Validators.required, Validators.minLength(6), Validators.maxLength(15)]],
+      password: ['', [Validators.required, Validators.minLength(6), Validators.maxLength(15)]]
     });
-
-    this.router.navigate([Const.PATH_URI.Main]);
   }
 
-  login({ value, valid }: { value: UserModel, valid: boolean }) {
-    this.router.navigate([Const.PATH_URI.Main]);
-    // this.doService(
-    //   () => this.authService.login(loginId, password),
-    //   (result: UserModel) => {
-    //     if (result.loginId === loginId) {
-    //       this.router.navigate([Const.PATH_URI.Main]);
-    //     }
-    //   }
-    // );
+  login() {
+    if (this.loginForm.valid) {
+      const userName = this.loginForm.controls['userName'].value;
+      const password = this.loginForm.controls['password'].value;
+
+      this.doService(
+        () => this.authService.login(userName, password),
+        (result: UserModel) => {
+          const toastCfg = new ToastConfig(ToastType.SUCCESS, '', '登录成功！', 3000);
+          this.toastService.toast(toastCfg);
+          this.router.navigate([Const.PATH_URI.Main]);
+        }
+      );
+    }
   }
 }

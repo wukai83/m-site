@@ -15,17 +15,4 @@ export class MainComponent extends BaseComponent implements OnInit {
 
   ngOnInit() {
   }
-
-  fromChild() {
-    this.doService(
-      () => this.authService.getUsers(),
-      (data) => {
-        console.dir(data);
-      }
-    );
-  }
-
-  fromParent() {
-    console.log('I am Parent');
-  }
 }
