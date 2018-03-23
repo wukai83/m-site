@@ -15,7 +15,7 @@ export class AppComponent {
     private initializer: Initializer,
     private translate: TranslateService
   ) {
-    const defualtLang = Const.LANG.JAPANESE;
+    const defualtLang = Const.LANG.CHINESE;
     this.translate.setDefaultLang(defualtLang);
     this.translate.use(defualtLang);
   }

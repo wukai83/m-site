@@ -1,18 +1,28 @@
 {
-  "CMT": {
-    "LOGIN": {
-      "DESCREPTION": "请输入您的用户信息。",
-      "REMEMBER_ME": "记住密码信息。",
-      "FORGET_PWD": "忘记密码信息。"
+  "LBL": {
+    "SITENAME": "MySite后台管理系统登录",
+    "COPYRIGHT": "Copyright 2017 lxc. All Rights Reserved. ",
+    "TIPS": {
+      "USERNAME": "请输入用户名...",
+      "PASSWORD": "请输入密码..."
+    },
+    "NAMES": {
+      "USERNAME": "用户名",
+      "PASSWORD": "密码"
     }
   },
-  "COM": {
-    "TITLE": {
-      "USERNAME": "",
-      "PASSWORD": ""
+  "MSG": {
+    "ERROR": {
+      "REQUIRED": "{0}为必填",
+      "MAXLENGTH": "{0}允许输入最大长度为{1}"
     }
   },
-  "BTN": {
-    "SUBMIT": "登陆"
+  "ELE": {
+    "BTN": {
+      "SUBMIT": "登 陆"
+    },
+    "LINK": {
+      "FORGET_PWD": "忘记密码？"
+    }
   }
 }

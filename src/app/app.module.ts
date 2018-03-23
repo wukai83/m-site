@@ -19,10 +19,13 @@ import { LoggerService } from './shared/service/common/logger.service';
 import { AuthGuard } from './shared/core/auth.guard';
 import './shared/core/custom-operators';
 import { environment } from '../environments/environment';
-import { StopPropagationDirective } from './shared/directive';
 import { ToastComponent } from './shared/component/toast/toast.component';
 import { ToastBoxComponent } from './shared/component/toast/toast-box.component';
 import { ToastService } from './shared/component/toast/toast.service';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+import { ReplacePipeModule } from './shared/pipe';
+import { DebounceClickDirectiveModule } from './shared/directive';
 
 export function createTranslateLoader(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -33,8 +36,7 @@ export function createTranslateLoader(http: HttpClient) {
     AppComponent,
     LoginComponent,
     ToastBoxComponent,
-    ToastComponent,
-    StopPropagationDirective
+    ToastComponent
   ],
   imports: [
     BrowserModule,
@@ -48,7 +50,10 @@ export function createTranslateLoader(http: HttpClient) {
         useFactory: createTranslateLoader,
         deps: [HttpClient]
       }
-    })
+    }),
+    ReplacePipeModule,
+    DebounceClickDirectiveModule,
+    BrowserAnimationsModule
   ],
   providers: [
     ConfigService,

@@ -28,8 +28,8 @@ export class LoginComponent extends BaseComponent implements OnInit {
 
   ngOnInit() {
     this.loginForm = this.formBuilder.group({
-      userName: ['', [Validators.required, Validators.minLength(6), Validators.maxLength(15)]],
-      password: ['', [Validators.required, Validators.minLength(6), Validators.maxLength(15)]]
+      userName: ['sysadmin', [Validators.required, Validators.maxLength(15)]],
+      password: ['sysadmin', [Validators.required, Validators.maxLength(15)]]
     });
   }
 

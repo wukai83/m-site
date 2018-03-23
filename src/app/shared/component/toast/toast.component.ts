@@ -5,6 +5,7 @@ import { ToastConfig, ToastType } from './toast-model';
  * toast组件
  */
 @Component({
+  // tslint:disable-next-line:component-selector
   selector: 'c-toast',
   templateUrl: './toast.component.html',
   styleUrls: ['./toast.component.scss']
