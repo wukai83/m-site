@@ -38,14 +38,15 @@ export class LoginComponent extends BaseComponent implements OnInit {
       const userName = this.loginForm.controls['userName'].value;
       const password = this.loginForm.controls['password'].value;
 
-      this.doService(
-        () => this.authService.login(userName, password),
-        (result: UserModel) => {
-          const toastCfg = new ToastConfig(ToastType.SUCCESS, '', '登录成功！', 3000);
-          this.toastService.toast(toastCfg);
-          this.router.navigate([Const.PATH_URI.Main]);
-        }
-      );
+      this.router.navigate([Const.PATH_URI.Main]);
+      // this.doService(
+      //   () => this.authService.login(userName, password),
+      //   (result: UserModel) => {
+      //     const toastCfg = new ToastConfig(ToastType.SUCCESS, '', '登录成功！', 3000);
+      //     this.toastService.toast(toastCfg);
+      //     this.router.navigate([Const.PATH_URI.Main]);
+      //   }
+      // );
     }
   }
 }
