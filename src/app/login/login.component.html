@@ -55,22 +55,9 @@
     </div>
   </div>
 </div> -->
-
-<article>
-  <header>
-    <h1>Title</h1>
-    <p>publish:<time>2018/05/11</time></p>
-  </header>
-  <p>This is Really Content.</p>
-  <footer>
-    <small>COPYRIGHT</small>
-  </footer>
-</article>
-
-<article>
-  <h1>My Fruit Spinner</h1>
-  <object>
-    <param name="allowFullScreen" value="true">
-    <embed src="#" width="600" height="395">
-  </object>
-</article>
+<div>
+  <input multiple type="file" accept=".*" (change)="logFileChnage($event.target.files)">
+  <!-- <p>  
+      <label>读取进度：</label><progress [(ngModel)]="progressValue" max="100"></progress>  
+  </p>  -->
+</div>

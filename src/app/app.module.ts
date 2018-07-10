@@ -14,7 +14,7 @@ import { LocalStorageService } from './shared/service/common/localStorage.servic
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { HttpClientModule, HttpClient } from '@angular/common/http';
-import { ReactiveFormsModule } from '@angular/forms';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { LoggerService } from './shared/service/common/logger.service';
 import { AuthGuard } from './shared/core/auth.guard';
 import './shared/core/custom-operators';
@@ -44,6 +44,7 @@ export function createTranslateLoader(http: HttpClient) {
     AppRoutingModule,
     HttpClientModule,
     ReactiveFormsModule,
+    FormsModule,
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,
